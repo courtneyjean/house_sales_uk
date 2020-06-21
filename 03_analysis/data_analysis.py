@@ -9,18 +9,19 @@ file_format = '/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/pp-
 
 def remove_outliers_by_year(df):
     '''
-    TODO: could set an optional parameter for how many standard deviations
     :param df:
     :return: df with outliers removed
     '''
-
+    no_rec_start = df.shape[0]
     years_in_frame = df["year_of_transfer"].unique()
     df_no_out = pd.DataFrame()
     for yr in years_in_frame:
         yr_df = df[df["year_of_transfer"] == yr].copy()
-        price_index = (np.abs(stats.zscore(yr_df['price'])) > OUTLIER_DEF)
+        price_index = (np.abs(stats.zscore(yr_df['price'])) < OUTLIER_DEF)
         yr_df_no_out = yr_df[price_index]
         df_no_out = pd.concat([df_no_out, yr_df_no_out])
+    no_rec_end = df_no_out.shape[0]
+    print("No. Records start: {}, No. Records end: {}".format(no_rec_start, no_rec_end))
     return df_no_out
 
 def stats_by_year(pc, df):
