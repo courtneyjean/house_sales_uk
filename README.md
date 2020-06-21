@@ -3,6 +3,7 @@
 A short analysis by Courtney Irwin
 
 ## About the project
+
 This project is a simple personal 
 project to practise my data analysis skills, explore some 
 popular dashboard libraries, and undertake some research for my
@@ -12,6 +13,7 @@ data science geeky way.
 ## Exploring London house price data
 
 ### Initial motivation for the project & challenges with the Zoopla API
+
 The inspiration for this project initially came from exploring the 
 rich information displayed on the Zoopla property website.  I was 
 keen to work with the eager to play with the data available.  After a 
@@ -21,6 +23,7 @@ went unanswered.  Some chat rooms suggested this was a common experience
 amongst other developers.   
 
 ### National Land Registry data
+
 As a replacement for this, I used the UK National Land Registry data for Price 
 Paid, available from:  
 
@@ -32,9 +35,11 @@ http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp
 ## Installation and Setup
 
 **Clone and setup requirements**
+
 TODO
 
 **Configurations**
+
 The configuration file (config.json) is found in the 00_utils folder.
 It contains the following configurable variable:
 * RAW_DATA_INPUT_FILE_PATH: the location of the raw data file.  
@@ -54,7 +59,8 @@ The repo is organised into the following stages:
 
 ### 00_utils
 
-** config.json **
+**config.json**
+
 This file contains the system global variables for the analysis, 
 including:
 * RAW_DATA_FILE_PATH:The variable pointing to the raw data file you want 
@@ -79,7 +85,7 @@ It does the following:
 * Writes a 'processed' csv file for each postcode of interest
 
 This process takes approximately 70 mins (depending on your internet speed) to read the large raw 
-dataframe from the website, and XX to clean and write a file for each postcode of interest. 
+dataframe from the website, and about a minute to clean and write a file for each postcode of interest. 
 
 You should aim to list out a comprehensive enough postcode list so 
 you only need to do this once.  
@@ -109,6 +115,9 @@ To run this, enter the following into terminal:
 ```
 streamlit run 04_plotting/streamlit_plotting.py
 ```
+<p align="center">
+<img src="example_image.jpeg.jpg" alt="A dashboard will display in a web browser" width="550" align:center/>
+</p>
 
 
 
