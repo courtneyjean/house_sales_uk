@@ -1,0 +1,12 @@
+{
+  "RAW_DATA_INPUT_FILE_PATH": "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv",
+  "RAW_DATA_INPUT_FILE_HEADINGS":
+    {
+    "0":"tui", "1":"price", "2":"date_of_transfer", "3":"postcode", "4":"property_type",
+    "5":"new_prop", "6":"duration", "7":"paom", "8":"saon", "9":"street", "10":"locality", "11":"town_city",
+    "12":"district", "13":"county", "14":"ppd_cat", "15":"record_status"
+    },
+  "POSTCODES_OF_INTEREST": ["SE16", "SE14", "SE1", "SE11", "SE17", "SE15", "SE5", "SW8", "SW9", "SW1",
+               "W1", "WC1", "WC2", "NW1", "N1", "EC1", "EC2", "EC3", "E1", "E2"],
+  "OUTLIERS_DEF_SD" : 3
+  }
