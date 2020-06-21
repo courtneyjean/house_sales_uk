@@ -115,6 +115,8 @@ To run this, enter the following into terminal:
 ```
 streamlit run 04_plotting/streamlit_plotting.py
 ```
+
+
 <p align="center">
 <img src="example_image.jpg" alt="A dashboard will display in a web browser" width="550" align:center/>
 </p>
