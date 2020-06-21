@@ -2,7 +2,7 @@
 
 A short analysis by Courtney Irwin
 
-##About the project
+## About the project
 This project is a simple personal 
 project to practise my data analysis skills, explore some 
 popular dashboard libraries, and undertake some research for my
@@ -43,7 +43,7 @@ It contains the following configurable variable:
 * OUTLIERS_DEF_SD: The definition of an outlier in the format of 'number of standard deviations from the mean'.
 
 
-##About the Repository
+## About the Repository
 
 The repo is organised into the following stages:
 * 00_utils
@@ -52,7 +52,7 @@ The repo is organised into the following stages:
 * 03_analysis
 * 04_plotting
 
-###00_utils
+### 00_utils
 
 ** config.json **
 This file contains the system global variables for the analysis, 
@@ -63,11 +63,11 @@ price paid data)
 * RAW_DATA_FILE_HEADINGS: The headings associated with the file above
 * POSTCODES_OF_INTEREST: The list of UK postcodes to analyse with the data
 
-###01_data
+### 01_data
 
 This file contains all the data files created by the programme.
 
-###02_preprocessing
+### 02_preprocessing
 
 This file contains the scripts to extract the postcodes of interest from the 
 large raw data file, clean the data, and write it locally to smaller, more quickly accessed, files.
@@ -84,7 +84,7 @@ dataframe from the website, and XX to clean and write a file for each postcode o
 You should aim to list out a comprehensive enough postcode list so 
 you only need to do this once.  
 
-###03_analysis
+### 03_analysis
 
 **Postcode Statistics by Year**
 
@@ -100,7 +100,7 @@ files output by the preprocessing fuction, for the postcodes of interest
 'min_price', 'avg_price'
 
 
-###04_plotting
+### 04_plotting
 
 I've experimented with streamlit as a way to visually analyse and present 
 the result of the analysis.
