@@ -5,8 +5,14 @@ import streamlit as st
 PC_STAT_FILE = '/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/stats-all_pc.csv'
 STATS_COLUMN_NAMES = {'postcode', 'year', 'max_price', 'min_price', 'avg_price'}
 
+@st.cache
+def load_data():
+    df = pd.read_csv(PC_STAT_FILE)
+    return df
+
 if __name__ == '__main__':
-    stats_df = pd.read_csv(PC_STAT_FILE)
+
+    stats_df = load_data()
     st.title('Exploring London house price growth over time')
 
     #Select a suburb
