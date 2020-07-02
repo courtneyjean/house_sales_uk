@@ -29,7 +29,7 @@ Paid, available from:
 
 https://www.gov.uk/government/collections/price-paid-data
 
-Specifically, I downloaded the complete price paid transaction data as a CSV file from:
+Specifically, I've linked to the following data (see config file to update link):
 http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv
 
 ## Installation and Setup

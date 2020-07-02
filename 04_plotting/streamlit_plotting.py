@@ -41,7 +41,24 @@ if __name__ == '__main__':
     stats_df = stats_df[(stats_df['year'] > time_period[0]) &
                                       (stats_df['year'] < time_period[1])]
 
-    # Required format for streamlit chat: Index = year, columns = min, max, average
-    st.line_chart(stats_df.groupby(['year']).mean()[['avg_price', "min_price", "max_price"]])
-    st.write(stats_df.groupby(['year']).mean()[['avg_price', "min_price", "max_price"]])
+    #Radio button for reported price
+    reported_price = st.radio("Which prices are you interested in reporting for each year?",
+                              ("Maximum", "Minimum", "Average"), index=2)
+
+    #Set the default as average price
+    selected_reported_price = "avg_price"
+    #update if the other options are selected
+    if reported_price == "Maximum":
+        selected_reported_price = "max_price"
+    if reported_price == "Minimum":
+        selected_reported_price = "min_price"
+
+    # Required format for streamlit chat: Index = year, columns = postcode, filtered by selected_reported_price
+    graphing_data = pd.pivot_table(stats_df, values=selected_reported_price, index='year', columns='postcode',
+                                   aggfunc=np.sum)
+    flattened = pd.DataFrame(graphing_data.to_records())
+    flattened.set_index(['year'], inplace=True)
+    st.line_chart(flattened)
+    st.write(flattened)
+
 
