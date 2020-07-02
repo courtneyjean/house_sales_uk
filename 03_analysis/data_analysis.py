@@ -59,7 +59,7 @@ def postcode_stats_by_year():
         stats = stats_by_year(pc, pc_df_no_out)
 
         #Add to df
-        all_pc_no_out =pd.concat([all_pc_no_out, stats])
+        all_pc_no_out =pd.concat([all_pc_no_out, pc_df_no_out]) #adding the details for each new postcode to the list
         all_pc_no_out.to_csv('/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/stats-all_pc.csv')
 
 if __name__ == '__main__':

@@ -5,27 +5,24 @@ import streamlit as st
 PC_STAT_FILE = '/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/stats-all_pc.csv'
 STATS_COLUMN_NAMES = {'postcode', 'year', 'max_price', 'min_price', 'avg_price'}
 
-
 if __name__ == '__main__':
     stats_df = pd.read_csv(PC_STAT_FILE)
     st.title('Exploring London house price growth over time')
 
     #Select a suburb
-    suburb = st.multiselect('Which suburb do you want to explore?',list(stats_df['postcode'].unique()),
+    suburb_pcs = st.multiselect('Which suburb do you want to explore?',list(stats_df['postcode'].unique()),
                             default=pd.unique(stats_df['postcode']))
-    st.write('Prices in ', ', '.join(suburb), ' over time')
+    st.write('Prices in ', ', '.join(suburb_pcs), ' over time')
 
     #Filter by the selected suburb
-    stats_df = stats_df[stats_df['postcode'].isin(suburb)]
+    stats_df = stats_df[stats_df['postcode'].isin(suburb_pcs)]
 
     #Property type
-    pt = st.multiselect('What property type?', list(stats_df['property_type'].unique()),
-                        default= stats_df['property_type'].unique())
+    pt = st.radio('What property type?', list(stats_df['property_type'].unique()))
     st.write("D = Detached, S = Semi-Detached, T = Terraced, F = Flats/Maisonettes, O = Other")
-    st.write('Property type', ', '.join(pt), ' over time')
 
     # Filter by the property type
-    stats_df = stats_df[(stats_df['property_type'].isin(pt))]
+    stats_df = stats_df[(stats_df['property_type'] == pt)]
 
     #Set up a slide for a time filter
 
