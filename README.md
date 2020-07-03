@@ -121,5 +121,32 @@ streamlit run 04_plotting/streamlit_plotting.py
 <img src="example_image_v2.jpg" alt="A dashboard will display in a web browser" width="550" align:center/>
 </p>
 
+## Deploying the dashboard to AWS
+
+To deploy the streamlit app, I followed the instructions on this website:
+https://blog.jcharistech.com/2019/10/29/how-to-deploy-streamlit-apps-on-aws-ec2/
+
+In a nutshell, I did the following:
+1) Created a new AWS instance, using a Linux AMI, on the free tier.  
+2) Set in inbound rules to enable TCP port 8501 to be access from anywhere.
+3) SSH'ed into the ec2
+4) Installed the latest python version
+5) Installed git
+6) Cloned this repo to the EC2
+7) Installed streamlit (python3 -m pip install streamlit --user)
+
+Once setup and installation were complete, I needed to download the data to the ec2, 
+and run the preprocessing and analysis scripts.
+
+cd into 02_preprocessing and run:
+
+```
+python3 preprocessing.py
+```
 
 
+
+Once complete, cd into the 04_plotting folder, and run:
+```
+streamlit run streamlit_plotting.py
+```
