@@ -6,7 +6,7 @@ import time
 def preprocess_data(pc_list):
     start = time.time()
 
-    df = pd.read_csv(DATAFILE, header=None, dtype=DATAFILETYPES, low_memory=False)
+    df = pd.read_csv(DATAFILE, header=None, low_memory=False)
     ch_time1 = time.time()
     print("Dataframe read in {}".format(ch_time1 - start))
 
