@@ -1,5 +1,5 @@
 {
-  "RAW_DATA_INPUT_FILE_PATH": "http://prod.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-complete.csv",
+  "RAW_DATA_INPUT_FILE_PATH": "01_data/pp-complete.csv",
   "RAW_DATA_INPUT_FILE_TYPES": {
     "0": "object", "1":"np.dtype(float)", "2":"object", "3":"object", "4":"str",
     "5":"str", "6":"str", "7":"str", "8":"str", "9":"str", "10":"str", "11":"str",
