@@ -32,8 +32,12 @@ if __name__ == '__main__':
 
     #Set up a slide for a time filter
 
-    pt_slider_min_val = stats_df['year'].min()
-    pt_slider_max_val = stats_df['year'].max()
+    pt_slider_min_val = int(stats_df['year'].min())
+    st.write(pt_slider_min_val)
+    st.write(type(pt_slider_min_val))
+    pt_slider_max_val = int(stats_df['year'].max())
+    st.write(pt_slider_max_val)
+    st.write(type(pt_slider_max_val))
     pt_slider_values = [pt_slider_min_val, pt_slider_max_val]
 
     time_period = st.slider("Over what time period?",
