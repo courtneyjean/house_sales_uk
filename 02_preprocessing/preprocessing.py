@@ -6,24 +6,22 @@ import time
 def preprocess_data(pc_list):
     start = time.time()
 
-    df = pd.read_csv(DATAFILE, header=None, low_memory=False)
-    ch_time1 = time.time()
-    print("Dataframe read in {}".format(ch_time1 - start))
+    df = pd.DataFrame()
 
+    chunksize = 300
+
+    for chunk in pd.read_csv(DATAFILE, header=None, low_memory=False, chunksize=chunksize):
+        ch_time1 = time.time()
+        print("Dataframe chunk read in {}".format(ch_time1 - start))
+        for pc in pc_list:
+            pc_start = time.time()
+            pc_df = pd.DataFrame()
+            pc_df = chunk[chunk[13].str.contains(pc, na=False)].copy() #filter only postcodes of interest
+            df = pd.concat([df, pc_df])
     df = df.rename(columns=HEADINGS)
-    ch_time2 = time.time()
-    print("Dataframe renamed at {}".format(ch_time2 - start))
-
-    for pc in pc_list:
-        pc_start = time.time()
-        pc_df = pd.DataFrame()
-        pc_df = df[df['postcode'].str.contains(pc, na=False)].copy()
-        pc_df["year_of_transfer"] = pc_df['date_of_transfer'].apply(lambda x: x.split('-')[0])
-        pc_df.to_csv('/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/pp-complete-preprocessed-{}.csv'.format(pc))
-        pc_end = time.time()
-        print("Time for postcode {} was {}".format(pc, (pc_end - pc_start)))
+    df["year_of_transfer"] = df["date_of_transfer"].apply(lambda x: x.split('-')[0])  # date of transfer
+    df.to_csv('/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/pp-complete-preprocessed-ALL.csv'.format(pc))
     end = time.time()
-
     print("Total time: {}".format((end-start)))
 
 if __name__ == '__main__':

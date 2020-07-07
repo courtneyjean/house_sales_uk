@@ -1,5 +1,5 @@
 {
-  "RAW_DATA_INPUT_FILE_PATH": "~/house_sales_uk/01_data/pp-complete.csv",
+  "RAW_DATA_INPUT_FILE_PATH": "../01_data/pp-complete.csv",
   "RAW_DATA_INPUT_FILE_HEADINGS":
     {
     "0":"tui", "1":"price", "2":"date_of_transfer", "3":"postcode", "4":"property_type",
