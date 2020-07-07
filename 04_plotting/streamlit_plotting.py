@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-PC_STAT_FILE = '/Users/courtneyirwin/Documents/GITREPO/House_Sales_UK/01_data/stats-all_pc.csv'
+PC_STAT_FILE = '../01_data/stats-all_pc.csv'
 STATS_COLUMN_NAMES = {'postcode', 'year', 'max_price', 'min_price', 'avg_price'}
 
 @st.cache
